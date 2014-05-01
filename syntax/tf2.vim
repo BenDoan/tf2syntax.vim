@@ -735,12 +735,10 @@ syn keyword tf2Command youtube_http_proxy youtube_username +zoom -zoom zoom_sens
 hi def link tf2Todo       Todo
 hi def link tf2Comment    Comment
 
-hi def link tf2Number     Constant
-hi def link tf2Float      Constant
+hi def link tf2Number     Number
+hi def link tf2Float      Float
+hi def link tf2Key        String
 hi def link tf2Command    Statement
-hi def link tf2Identifier Identifier
-hi def link tf2Type       Type
-hi def link tf2Key        Function
 " }}}
 
 let b:current_syntax="tf2"
