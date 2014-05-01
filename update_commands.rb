@@ -40,8 +40,12 @@ if __FILE__ == $0
   cmds = UpdateCommands.new "%commands%"
   commands = cmds.fetch
 
+  # read the template into variable data
   syntax_file = File.open("#{Dir.pwd}/template.vim", "rb")
   data = syntax_file.read
+  syntax_file.close
+
+  # replace %commands% with the commands downloaded from the tf2 dev wiki
   data.gsub!("#{cmds.replacement_text}", cmds.create_syntax(commands))
 
   syntax_file = File.open("#{Dir.pwd}/syntax/tf2.vim", "w")
