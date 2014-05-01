@@ -17,7 +17,7 @@ if you don't have any sort of plugin manager:
 
 In your vimrc, add:
 
-```Bundle 'horsemd/tf2syntax.vim'
+    Bundle 'horsemd/tf2syntax.vim'
 
 Then run simply `:BundleInstall` to install.
 
