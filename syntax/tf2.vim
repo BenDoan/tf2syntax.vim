@@ -730,7 +730,7 @@ syn keyword tf2Command writeip x360_audio_english x360_resolution_height x360_re
 syn keyword tf2Command x360_resolution_width xbox_autothrottle xbox_steering_deadzone xbox_throttlebias xbox_throttlespoof
 syn keyword tf2Command xc_crouch_debounce xload xlook xmove xsave
 syn keyword tf2Command youtube_http_proxy youtube_username +zoom -zoom zoom_sensitivity_ratio
- }}}
+" }}}
 
 " {{{ Highlighting
 hi def link tf2Todo Todo

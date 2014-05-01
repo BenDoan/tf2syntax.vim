@@ -26,7 +26,7 @@ class UpdateCommands
   def create_syntax commands_list
     data = "{{{ Commands:\n"
     commands_list.each_slice(5) { |slice| data << "syn keyword tf2Command #{slice.join(" ")}\n"}
-    data << " }}}"
+    data << "\" }}}"
     return data
   end
 end
