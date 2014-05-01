@@ -12,8 +12,8 @@ syn keyword tf2Todo contained TODO FIXME XXX NOTE
 syn region tf2Comment display oneline start="//" end="$" keepend contains=tf2Todo
 
 " values
-syn match tf2Number "\d\+"      contained display
-syn match tf2Float  "\d\+\.\d*" contained display
+syn match tf2Number "\d\+"      display
+syn match tf2Float  "\d\+\.\d*" display
 
 " {{{ Bind-ables
 " main keyboard
