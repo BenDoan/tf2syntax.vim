@@ -19,5 +19,5 @@ In your vimrc, add:
 
     Bundle 'horsemd/tf2syntax.vim'
 
-Then run simply `:BundleInstall` to install.
+Then simply run `:BundleInstall` to install.
 
