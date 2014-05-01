@@ -738,9 +738,7 @@ hi def link tf2Comment Comment
 
 hi def link tf2Number Constant
 hi def link tf2Float Constant
-hi def link tf2Command Keyword
-hi def link tf2Identifier Identifier
-hi def link tf2Type Type
+hi def link tf2Command Statement
 hi def link tf2Key Function
 " }}}
 

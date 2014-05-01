@@ -23,9 +23,14 @@ class UpdateCommands
     return commands
   end
 
+  # The text to replace %commands% or whatever you passed to the constructor with.
+  # Create the "syn keyword tf2Command a b c" lines. Also addes fold markers to
+  # ease the fact that this is about 700 lines long; 3000 or so commands.
   def create_syntax commands_list
     data = "{{{ Commands:\n"
-    commands_list.each_slice(5) { |slice| data << "syn keyword tf2Command #{slice.join(" ").downcase}\n"}
+    commands_list.each_slice(5) do |slice| 
+      data << "syn keyword tf2Command #{slice.join(" ").downcase}\n"
+    end
     data << "\" }}}"
     return data
   end
@@ -35,7 +40,7 @@ if __FILE__ == $0
   cmds = UpdateCommands.new "%commands%"
   commands = cmds.fetch
 
-  syntax_file = File.open("#{Dir.pwd}/new_tf2.vim", "rb")
+  syntax_file = File.open("#{Dir.pwd}/template.vim", "rb")
   data = syntax_file.read
   data.gsub!("#{cmds.replacement_text}", cmds.create_syntax(commands))
 
