@@ -16,6 +16,8 @@ I'd recommend using [Vundle.vim](https://github.com/gmarik/Vundle.vim) to instal
 if you don't have any sort of plugin manager:
 
 In your vimrc, add:
+
 ```Bundle 'horsemd/tf2syntax.vim'
+
 Then run simply `:BundleInstall` to install.
 
