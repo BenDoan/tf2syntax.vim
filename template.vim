@@ -12,9 +12,8 @@ syn keyword tf2Todo contained TODO FIXME XXX NOTE
 syn region tf2Comment display oneline start="//" end="$" keepend contains=tf2Todo
 
 " values
-syn match tf2Number '\d\+' contained display
-syn match tf2Float '\d\+\.\d*' contained display
-syn match tf2Float '\.\d\+\>' contained display
+syn match tf2Number "\d\+"      contained display
+syn match tf2Float  "\d\+\.\d*" contained display
 
 " {{{ Bind-ables
 " main keyboard
@@ -34,15 +33,15 @@ syn keyword tf2Key MWHEELUP MWHEELUP MOUSE1 MOUSE2 MOUSE3 MOUSE4 MOUSE5
 " %commands%
 
 " {{{ Highlighting
-hi def link tf2Todo Todo
-hi def link tf2Comment Comment
+hi def link tf2Todo       Todo
+hi def link tf2Comment    Comment
 
-hi def link tf2Number Constant
-hi def link tf2Float Constant
-hi def link tf2Command Statement
+hi def link tf2Number     Constant
+hi def link tf2Float      Constant
+hi def link tf2Command    Statement
 hi def link tf2Identifier Identifier
-hi def link tf2Type Type
-hi def link tf2Key Function
+hi def link tf2Type       Type
+hi def link tf2Key        Function
 " }}}
 
 let b:current_syntax="tf2"
