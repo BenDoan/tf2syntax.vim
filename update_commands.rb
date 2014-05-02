@@ -14,8 +14,9 @@ class UpdateCommands
     url = "https://developer.valvesoftware.com/wiki/List_of_TF2_console_commands_and_variables"
     doc = Nokogiri::HTML(open(url)).css("pre")
     commands = []
-    for section in doc # commands are separated in <pre>'s, alphabetically. 27 in total. (first one is _)
-      for line in section.inner_text.split("\n")
+    # commands are separated in <pre>'s, alphabetically. 27 in total. (first one is _)
+    doc.each do |section| 
+      section.inner_text.split("\n").each do |line|
         word = line.split(" ")[0]
         commands << word unless word.nil?
       end
@@ -34,22 +35,26 @@ class UpdateCommands
     data << "\" }}}"
     return data
   end
+
+  # Update the newfile with the template file's contents, after
+  # adding in the commands.
+  def update_file template, newfile, commands
+    # read the template into variable data
+    syntax_file = File.open(template, "rb")
+    data = syntax_file.read
+    syntax_file.close
+
+    # replace %commands% with the commands downloaded from the dev wiki
+    data.gsub!("#{@replacement_text}", create_syntax(commands))
+
+    syntax_file = File.open(newfile, "w")
+    syntax_file.write(data)
+    syntax_file.close
+  end
 end
 
 if __FILE__ == $0
   cmds = UpdateCommands.new "%commands%"
-  commands = cmds.fetch
-
-  # read the template into variable data
-  syntax_file = File.open("#{Dir.pwd}/template.vim", "rb")
-  data = syntax_file.read
-  syntax_file.close
-
-  # replace %commands% with the commands downloaded from the tf2 dev wiki
-  data.gsub!("#{cmds.replacement_text}", cmds.create_syntax(commands))
-
-  syntax_file = File.open("#{Dir.pwd}/syntax/tf2.vim", "w")
-  syntax_file.write(data)
-  syntax_file.close
+  cmds.update_file("#{Dir.pwd}/template.vim", "#{Dir.pwd}/syntax/tf2.vim", cmds.fetch)
 end
 
