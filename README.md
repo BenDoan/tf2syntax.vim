@@ -21,7 +21,7 @@ if you don't have any sort of plugin manager:
 
 In your vimrc, add:
 
-    Plugin 'horsemd/tf2syntax.vim'
+    Plugin 'BenDoan/tf2syntax.vim'
 
 Then simply run `:PluginInstall` to install.
 
